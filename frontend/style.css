@@ -1,0 +1,347 @@
+:root {
+    --primary-orange: #ff6600;
+    --glow-orange: #ff9500;
+    --dark-bg: #0a0a0a;
+    --card-bg: rgba(25, 25, 25, 0.7);
+    --text-light: #e0e0e0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: var(--dark-bg);
+    background-image: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #0a0a0a 100%);
+    color: var(--text-light);
+    min-height: 100vh;
+}
+
+nav {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 1rem 2rem;
+    border-bottom: 2px solid var(--primary-orange);
+    box-shadow: 0 0 15px rgba(255, 102, 0, 0.3);
+}
+
+.nav-container{
+    display: flex;
+    align-items: center;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-area svg {
+    width: 28px;
+    height: 28px;
+}
+
+.nav-container {
+    justify-content: space-between;
+}
+
+nav h1 {
+    color: var(--primary-orange);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+    line-height: 1;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+nav a:hover {
+    color: var(--primary-orange);
+    border: 1px solid var(--primary-orange);
+    box-shadow: 0 0 10px var(--primary-orange);
+    transform: translateY(-2px);
+}
+
+.music-note { 
+    display: none; 
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); text-shadow: 0 0 10px var(--primary-orange); }
+    50% { transform: scale(1.1); text-shadow: 0 0 30px var(--primary-orange); }
+}
+
+.section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+}
+
+.hero-content {
+    text-align: center;
+}
+
+#artistForm {
+    display: flex;
+    gap: 15px;
+    padding: 30px;
+    border: 2px solid var(--primary-orange);
+    border-radius: 15px;
+    background: rgba(0,0,0,0.8);
+    margin-bottom: 30px;
+}
+
+#artistForm input {
+    background: #000;
+    border: 1px solid #333;
+    color: white;
+    padding: 15px;
+    font-size: 1rem;
+    flex: 1;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+#artistForm input:focus {
+    outline: none;
+    border-color: var(--glow-orange);
+    box-shadow: 0 0 15px var(--glow-orange);
+}
+
+#artistForm button {
+    background: linear-gradient(to bottom, #ff8533, #ff6600);
+    border: none;
+    color: black;
+    padding: 0 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 50px;
+    align-self: center;
+}
+
+#artistForm button:hover {
+    filter: brightness(1.2);
+    box-shadow: 0 0 20px var(--primary-orange);
+    transform: translateY(-2px);
+}
+
+#artistForm button:active {
+    transform: translateY(0);
+}
+
+#albumForm {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px;
+}
+
+.vinyl-input {
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, #333 10%, #111 11%, #111 100%);
+    border: 4px solid #222;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.vinyl-input input {
+    width: 80%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--primary-orange);
+    color: white;
+    text-align: center;
+    font-size: 0.8rem;
+    z-index: 2;
+}
+
+.vinyl-input input:focus {
+    outline: none;
+}
+
+.spinning {
+    transform: rotate(360deg);
+}
+
+#albumForm button {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--primary-orange);
+    color: black;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 20px var(--primary-orange);
+}
+
+#songForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    background: #111;
+    padding: 20px;
+    border: 3px solid #333;
+    border-radius: 20px;
+    box-shadow: inset 0 0 20px #000;
+}
+
+#songForm h3 {
+    grid-column: span 2;
+    text-align: center;
+    color: var(--primary-orange);
+    margin: 0 0 10px 0;
+}
+
+#songForm input {
+    background: #222;
+    border: 2px solid var(--primary-orange);
+    color: white;
+    padding: 12px;
+    border-radius: 50px;
+    text-align: center;
+}
+
+#songForm button {
+    grid-column: span 2;
+    background: linear-gradient(to bottom, #ff8533, #ff6600);
+    border: none;
+    height: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#songForm button:hover {
+    filter: brightness(1.2);
+    box-shadow: 0 0 20px var(--primary-orange);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+th {
+    border-bottom: 2px solid var(--primary-orange);
+    padding: 15px;
+    text-align: left;
+    color: var(--primary-orange);
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #333;
+}
+
+tr:hover {
+    background: rgba(255, 102, 0, 0.05);
+}
+
+.delete-btn {
+    background: transparent;
+    border: 1px solid #ff4444;
+    color: #ff4444;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+.delete-btn:hover {
+    background: #ff4444;
+    color: white;
+}
+
+/* Artist Page: Side-by-side buttons */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.update-action {
+    background: transparent !important;
+    border: 2px solid var(--primary-orange) !important;
+    color: var(--primary-orange) !important;
+}
+
+/* Vinyl Page: The "Odd" Sync Button */
+.vinyl-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.vinyl-sync {
+    width: 60px !important;
+    height: 60px !important;
+    font-size: 0.7rem;
+    border-radius: 50% !important;
+    background: #222 !important;
+    border: 2px dashed var(--primary-orange) !important;
+    color: var(--primary-orange) !important;
+    animation: slow-spin 10s linear infinite;
+}
+
+@keyframes slow-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Mixer Page: Filling the gap */
+.mixer-update {
+    background: #333 !important;
+    border: 1px solid #555 !important;
+    color: #888 !important;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    border-radius: 5px !important;
+}
+
+.mixer-update:hover {
+    color: white !important;
+    border-color: var(--primary-orange) !important;
+}
+
+/* Action Buttons in Table */
+.action-btns {
+    display: flex;
+    gap: 5px;
+}
+
+.edit-link {
+    color: var(--glow-orange);
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 0.8rem;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Library System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <nav>
+    <div class="nav-container">
+        <div class="logo-area">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ff6600">
+        <path d="M160-160v-320h160v320H160Zm240 0v-640h160v640H400Zm240 0v-440h160v440H640Z"/>
+        </svg>
+    <h1>MusicEz</h1>
+</div>
+        <ul>
+            <li><a href="#" onclick="showSection('home')">Home</a></li>
+            <li><a href="#" onclick="showSection('artists')">Artists</a></li>
+            <li><a href="#" onclick="showSection('albums')">Albums</a></li>
+            <li><a href="#" onclick="showSection('songs')">Songs</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div id="home" class="section">
+    <div class="hero-content">
+        <h2>Welcome to MusicEz</h2>
+        <p>Your streamlined personal music archive.</p>
+    </div>
+</div>
+
+    <!-- Artists Section -->
+<div id="artists" class="section">
+    <form id="artistForm">
+        <input type="text" id="artistName" placeholder="Artist Name">
+        <input type="text" id="artistGenre" placeholder="Genre">
+        <input type="number" id="artistListeners" placeholder="Monthly Listeners">
+        <div class="button-group">
+            <button type="submit">Add</button>
+            <button type="button" id="updateArtistBtn" class="update-action">Update</button>
+        </div>
+    </form>
+    <table id="artistTable">
+        <thead><tr><th>ID</th><th>Name</th><th>Genre</th><th>Listeners</th><th>Actions</th></tr></thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<!-- Albums Section (Vinyl) -->
+<div id="albums" class="section">
+    <form id="albumForm">
+        <div class="vinyl-input"><input type="text" id="albumName" placeholder="NAME"></div>
+        <div class="vinyl-input"><input type="number" id="albumYear" placeholder="YEAR"></div>
+        <div class="vinyl-input"><input type="number" id="artistId" placeholder="ARTIST ID"></div>
+        <div class="vinyl-controls">
+            <button type="submit" id="addAlbumBtn">ADD</button>
+            <button type="button" id="updateAlbumBtn" class="vinyl-sync">SYNC</button>
+        </div>
+    </form>
+    <table id="albumTable">
+        <thead><tr><th>ID</th><th>Name</th><th>Year</th><th>Artist ID</th><th>Actions</th></tr></thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+
+<div id="songs" class="section">
+    <form id="songForm">
+        <h3>🎚️Mixer Board🎚️</h3>
+        <input type="text" id="songName" placeholder="Song Name">
+        <input type="number" id="songYear" placeholder="Year">
+        <input type="number" id="albumId" placeholder="Album ID">
+        <button type="button" id="updateSongBtn" class="mixer-update">Update</button>
+        <button type="submit">Add Song</button>
+    </form>
+    <table id="songTable">
+        <thead><tr><th>ID</th><th>Name</th><th>Year</th><th>Album ID</th><th>Actions</th></tr></thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+    <script src="app.js"></script>
+</body>
+</html>
